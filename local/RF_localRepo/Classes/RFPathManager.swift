@@ -223,12 +223,19 @@ open class RFPathManager {
         guard !path.isEmpty else {
             return nil
         }
-        return FileManager.default.contents(atPath: path)
+        return FileManager.default.contents(atPath: normalPath(path: path))
     }
-    
-//    public class func plist(_ path: String) -> Dictionary<String, Any> {
-//        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
-//                let documentsDirectory = paths.object(at: 0) as! NSString
-//
-//    }
+    /**
+     @brief 读取工程中plist文件到字典
+     */
+    public static func plist(_ path: String) -> Dictionary<String, Any>{
+        guard let url = Bundle.main.url(forResource: path, withExtension: "plist") else {
+            return ["":""]
+        }
+        guard let data = try? Data(contentsOf: url) else {
+            return ["":""]
+        }
+        let dic = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil)
+        return dic as! Dictionary<String, Any>
+    }
 }
