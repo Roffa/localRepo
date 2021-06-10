@@ -1,0 +1,14 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'RF_localRepo_Example' do
+  pod 'RF_localRepo', :path => '../'
+  pod 'WHC_KeyboardManager'
+  
+  target 'RF_localRepo_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

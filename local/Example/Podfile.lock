@@ -1,0 +1,23 @@
+PODS:
+  - RF_localRepo (0.1.2)
+  - WHC_KeyboardManager (1.3.0)
+
+DEPENDENCIES:
+  - RF_localRepo (from `../`)
+  - WHC_KeyboardManager
+
+SPEC REPOS:
+  trunk:
+    - WHC_KeyboardManager
+
+EXTERNAL SOURCES:
+  RF_localRepo:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RF_localRepo: 705817d9fa9eadb785cbd13ccfd3de1dec88306e
+  WHC_KeyboardManager: feb58d9e4ed1c5f4bd8986c7904e7b23c3c246b9
+
+PODFILE CHECKSUM: 2fe3edb16851e6833bbd515079240e8accb1f513
+
+COCOAPODS: 1.10.1

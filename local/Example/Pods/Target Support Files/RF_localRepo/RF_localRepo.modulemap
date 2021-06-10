@@ -1,0 +1,6 @@
+framework module RF_localRepo {
+  umbrella header "RF_localRepo-umbrella.h"
+
+  export *
+  module * { export * }
+}
