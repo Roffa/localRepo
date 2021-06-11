@@ -1,6 +1,6 @@
 {
   "name": "RF_localRepo",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "summary": "工具类",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/Roffa/RF_localRepo",
@@ -13,10 +13,15 @@
   },
   "source": {
     "git": "https://github.com/zrf/RF_localRepo.git",
-    "tag": "0.1.2"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "RF_localRepo/Classes/**/*"
+  "source_files": "RF_localRepo/Classes/**/*",
+  "resource_bundles": {
+    "RF_localRepo": [
+      "RF_localRepo/Assets/*.{xib,png}"
+    ]
+  }
 }

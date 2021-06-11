@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UIView {
+public extension UIView {
     /// SwifterSwift: Shake directions of a view.
     ///
     /// - horizontal: Shake left and right.
@@ -76,15 +76,7 @@ extension UIView {
         }
     }
 
-    /// SwifterSwift: Height of view.
-    var height: CGFloat {
-        get {
-            return frame.size.height
-        }
-        set {
-            frame.size.height = newValue
-        }
-    }
+    
     /// SwifterSwift: Take screenshot of view (if applicable).
     var screenshot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
@@ -125,16 +117,7 @@ extension UIView {
             layer.shadowRadius = newValue
         }
     }
-    /// SwifterSwift: Size of view.
-    var size: CGSize {
-        get {
-            return frame.size
-        }
-        set {
-            width = newValue.width
-            height = newValue.height
-        }
-    }
+    
 
     /// SwifterSwift: Get view's parent view controller
     var viewController: UIViewController? {
@@ -157,7 +140,15 @@ extension UIView {
             frame.size.width = newValue
         }
     }
-
+    /// SwifterSwift: Height of view.
+    var height: CGFloat {
+        get {
+            return frame.size.height
+        }
+        set {
+            frame.size.height = newValue
+        }
+    }
     /// SwifterSwift: x origin of view.
     var x: CGFloat {
         get {
@@ -175,6 +166,16 @@ extension UIView {
         }
         set {
             frame.origin.y = newValue
+        }
+    }
+    /// SwifterSwift: Size of view.
+    var size: CGSize {
+        get {
+            return frame.size
+        }
+        set {
+            width = newValue.width
+            height = newValue.height
         }
     }
     /// SwifterSwift: Set some or all corners radiuses of view.
@@ -220,6 +221,11 @@ extension UIView {
     ///   - name: nib name.
     ///   - bundle: bundle of nib (default is nil).
     /// - Returns: optional UIView (if applicable).
+//    let v:LYBMyHeaderView=Bundle.main.loadNibNamed("LYBMyHeaderView", owner: nil, options: nil)?.last as! LYBMyHeaderView
+//          或者
+//       let nib = UINib(nibName: "LYBMyHeaderView", bundle: nil)
+//       let v = nib.instantiate(withOwner: nil, options: nil)[0] as! LYBMyHeaderView
+    
     class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
         return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }

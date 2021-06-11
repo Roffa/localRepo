@@ -1,5 +1,5 @@
 PODS:
-  - RF_localRepo (0.1.2)
+  - RF_localRepo (0.1.3)
   - WHC_KeyboardManager (1.3.0)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RF_localRepo: 705817d9fa9eadb785cbd13ccfd3de1dec88306e
+  RF_localRepo: 1998320cb8ca11d93433080a3dda9de37f37758d
   WHC_KeyboardManager: feb58d9e4ed1c5f4bd8986c7904e7b23c3c246b9
 
 PODFILE CHECKSUM: 2fe3edb16851e6833bbd515079240e8accb1f513

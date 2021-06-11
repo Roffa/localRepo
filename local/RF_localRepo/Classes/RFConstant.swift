@@ -81,10 +81,53 @@ public func appBundleId() -> String {
     }
 }
 /**
+ @brief 屏幕宽度
+ */
+public var lsScreenWidth : CGFloat {
+    UIScreen.main.bounds.size.width
+}
+public var lsScreenHeight : CGFloat {
+    UIScreen.main.bounds.size.height
+}
+//顶部安全区域
+public var lsSafeTop : CGFloat {
+    if #available(iOS 11.0, *),
+        let window = UIApplication.shared.keyWindow {
+        return window.safeAreaInsets.top
+    }
+    return 20
+}
+//底部安全区域
+public var lsSafeBottom : CGFloat {
+    if #available(iOS 11.0, *),
+        let window = UIApplication.shared.keyWindow {
+        return window.safeAreaInsets.bottom
+    }
+    return 0
+}
+/**
  @brief 自定义打印，只有debug模式下，控制台会打印出信息
  */
-func lsPrint(_ items: Any..., isSave: Bool = false){
+public func lsPrint(_ items: Any..., file: String = #file, function: String = #function, isSave: Bool = true){
+    
+    var log = Date().string() + " " + (file as NSString).lastPathComponent + "." + function + " "
+    for item in items{
+        if let value = item as? String{
+            log += value
+        }else if let value = item as? CustomStringConvertible {
+            log += value.description
+        }
+    }
+    log += "\n"
     #if DEBUG
-        print(items)
+    print(log)
     #endif
+    if isSave {
+        let logPath = "Log/log.txt"
+        if RFPathManager.size(logPath) > 1_024_000 {  //文件大于1000K时自动清理
+            RFPathManager.del(logPath)
+        }
+        RFPathManager.insert(logPath, data: log.data)
+    }
+    
 }

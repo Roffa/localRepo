@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RF_localRepo'  #需要和.podspec的名称一样. pod search搜索关键字
-  s.version          = '0.1.2'  #当前版本号
+  s.version          = '0.1.3'  #当前版本号
   s.summary          = '工具类'
 
 # This description is used to generate tags and improve search results.
@@ -32,9 +32,9 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'RF_localRepo/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'RF_localRepo' => ['RF_localRepo/Assets/*.png']
-  # }
+   s.resource_bundles = {
+     'RF_localRepo' => ['RF_localRepo/Assets/*.{xib,png}']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
