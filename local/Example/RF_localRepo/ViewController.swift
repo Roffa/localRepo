@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         lsPrint("获取文件夹下文件列表:" + RFPathManager.getSubFiles(RFPathManager.prefixDocPath).description)
         print(RFPathManager.size("Log/log.txt"))
         
-        let bannerView = UIView.loadFromNib(named: "BannerView")
+        let bannerView = UIView.loadFromNib(named: "BannerView", bundle: myBundle())
         if let bannerView = bannerView {
             bnView = bannerView as? BannerView
             view.addSubview(bannerView)

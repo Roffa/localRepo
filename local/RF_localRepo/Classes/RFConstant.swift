@@ -105,6 +105,28 @@ public var lsSafeBottom : CGFloat {
     }
     return 0
 }
+//获取本地framework资源信息
+//当pod使用 user_framework时，需要从framework中读取到bundle，未使用时可直接获取
+public func myBundle(_ name: String = "RF_localRepo", framework: String = "RF_localRepo") -> Bundle?{
+    let frameworkUrl = Bundle.main.url(forResource: "Frameworks", withExtension: nil)  //获取framework
+//    let url = Bundle.main.url(forResource: name, withExtension: "bundle")  //没有user_framework时直接使用
+//    if let url = url {
+//        return Bundle(url: url)
+//    }
+    var bundleUrl = frameworkUrl?.appendingPathComponent(framework)
+    bundleUrl?.appendPathExtension("framework")
+    if let bundleUrl = bundleUrl {
+        let bundle = Bundle(url: bundleUrl)
+        let url = bundle?.url(forResource: name, withExtension: "bundle")
+        let myBundle = Bundle(url: url!)
+        return myBundle
+    }else{
+        return nil
+    }
+//    self.imagView.image = [UIImage imageNamed:@"icon_mine_grade"
+//      inBundle: bundle
+//    compatibleWithTraitCollection:nil];
+}
 /**
  @brief 自定义打印，只有debug模式下，控制台会打印出信息
  */
