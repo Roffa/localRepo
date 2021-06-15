@@ -21,7 +21,7 @@
   "source_files": "RF_localRepo/Classes/**/*",
   "resource_bundles": {
     "RF_localRepo": [
-      "RF_localRepo/Assets/*.{xib,png}"
+      "RF_localRepo/Assets/*.{xib,png,xcassets}"
     ]
   }
 }

@@ -35,7 +35,11 @@ TODO: Add long description of the pod here.
    s.resource_bundles = {
      'RF_localRepo' => ['RF_localRepo/Assets/*.{xib,png,xcassets}']
    }
-
+#   使用下面方法，资源部放入bundle中，主工程可以直接使用
+#   s.resources = [
+#   'RF_localRepo/Assets/*.{xib,png,xcassets}',
+#   'RF_localRepo/Assets/*.*'
+#   ]
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'

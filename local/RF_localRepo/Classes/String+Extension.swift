@@ -39,15 +39,15 @@ public extension String{
             CC_MD5_Init(&context)
             //读取文件信息
             while case let data = file.readData(ofLength: bufferSize), data.count>0{
-                data.withUnsafeBytes{
-                _ = CC_MD5_Update(&context, $0,CC_LONG(data.count))
+                data.withUnsafeBytes {
+                    _ = CC_MD5_Update(&context, $0.baseAddress,CC_LONG(data.count))
                 }
             }
             //计算Md5摘要
             var digest = Data(count:Int(CC_MD5_DIGEST_LENGTH))
             
             digest.withUnsafeMutableBytes {
-                _=CC_MD5_Final($0, &context)
+                _=CC_MD5_Final($0.baseAddress?.assumingMemoryBound(to: UInt8.self), &context)
             }
             
             return digest.map{String(format:"%02x", $0) }.joined()
